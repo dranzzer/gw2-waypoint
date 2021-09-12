@@ -7,6 +7,9 @@ result.status_code
 
 result_json = result.json()
 
+
+wp_db = []
+
 #print(result_json[0]["regions"]["1"]["maps"]["26"]["points_of_interest"])
 
 #pulling from api
@@ -14,4 +17,9 @@ waypoint_pull =result_json[0]["regions"]["1"]["maps"]["26"]["points_of_interest"
 for k, v in waypoint_pull.items():
     for a,s in v.items():
         if s == "waypoint":
-            print(v)
+            wp_db.append(v)
+
+
+
+
+print(type(wp_db))
