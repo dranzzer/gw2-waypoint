@@ -1,0 +1,200 @@
+[
+    {
+        "name": "Tribulation Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20121.5,
+            17733.4
+        ],
+        "id": 598,
+        "chat_link": "[&BFYCAAA=]"
+    },
+    {
+        "name": "Frostland Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20659.1,
+            17906.6
+        ],
+        "id": 599,
+        "chat_link": "[&BFcCAAA=]"
+    },
+    {
+        "name": "Dociu Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            21240.3,
+            17650.7
+        ],
+        "id": 600,
+        "chat_link": "[&BFgCAAA=]"
+    },
+    {
+        "name": "Seven Pines Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            21048.4,
+            16879.4
+        ],
+        "id": 601,
+        "chat_link": "[&BFkCAAA=]"
+    },
+    {
+        "name": "Grey Road Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20684.6,
+            17105.3
+        ],
+        "id": 602,
+        "chat_link": "[&BFoCAAA=]"
+    },
+    {
+        "name": "Steelbrachen Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            19936.6,
+            17105
+        ],
+        "id": 603,
+        "chat_link": "[&BFsCAAA=]"
+    },
+    {
+        "name": "Toran Hollow Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            19683.1,
+            16311
+        ],
+        "id": 604,
+        "chat_link": "[&BFwCAAA=]"
+    },
+    {
+        "name": "Hessdallen Kenning Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20307.5,
+            16045
+        ],
+        "id": 605,
+        "chat_link": "[&BF0CAAA=]"
+    },
+    {
+        "name": "Kenning Testing Ground Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20806.8,
+            16337.3
+        ],
+        "id": 606,
+        "chat_link": "[&BF4CAAA=]"
+    },
+    {
+        "name": "Wide Expanse Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            21383.4,
+            16227.5
+        ],
+        "id": 607,
+        "chat_link": "[&BF8CAAA=]"
+    },
+    {
+        "name": "Nottowr Fault Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            21558,
+            15649.7
+        ],
+        "id": 608,
+        "chat_link": "[&BGACAAA=]"
+    },
+    {
+        "name": "Mountain's Tail Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            21164.7,
+            15744
+        ],
+        "id": 609,
+        "chat_link": "[&BGECAAA=]"
+    },
+    {
+        "name": "Graupel Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20805.7,
+            15265.5
+        ],
+        "id": 610,
+        "chat_link": "[&BGICAAA=]"
+    },
+    {
+        "name": "Havfrue Basin Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20504,
+            15514.2
+        ],
+        "id": 611,
+        "chat_link": "[&BGMCAAA=]"
+    },
+    {
+        "name": "Travelen's Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            20141.4,
+            15425.3
+        ],
+        "id": 612,
+        "chat_link": "[&BGQCAAA=]"
+    },
+    {
+        "name": "Wyrmblood Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            19922.2,
+            15772.4
+        ],
+        "id": 613,
+        "chat_link": "[&BGUCAAA=]"
+    },
+    {
+        "name": "Granite Citadel Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            21445.2,
+            17323.6
+        ],
+        "id": 1262,
+        "chat_link": "[&BO4EAAA=]"
+    },
+    {
+        "name": "Sorrow's Embrace Waypoint",
+        "type": "waypoint",
+        "floor": 1,
+        "coord": [
+            19768.4,
+            17691.8
+        ],
+        "id": 1343,
+        "chat_link": "[&BD8FAAA=]"
+    }
+]

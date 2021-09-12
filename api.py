@@ -1,4 +1,5 @@
 import requests
+import json
 result = requests.get("https://api.guildwars2.com/v2/continents/1/floors?ids=1")
 
 
@@ -22,4 +23,6 @@ for k, v in waypoint_pull.items():
 
 
 
-print(type(wp_db))
+
+with open('output.json','w') as fs:
+    json.dump(wp_db,fs,indent=4)
