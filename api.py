@@ -20,18 +20,28 @@ wp_db = []
 #        if s == "waypoint":
 #           wp_db.append(v)
 
-wp_pull =result_json[0]["regions"]["1"]["maps"]
-for map_number,map_data in wp_pull.items():
-    for name,min_level in map_data.items():
-        if name =="points_of_interest":
-            for x,c in min_level.items():
-                for q,w in c.items():
-                    if w=="waypoint":
-                        wp_db.append(c)                
+#wp_pull =result_json[0]["regions"]["1"]["maps"]
+#for map_number,map_data in wp_pull.items():
+ #   for name,min_level in map_data.items():
+  #      if name =="points_of_interest":
+   #         for x,c in min_level.items():
+    #            for q,w in c.items():
+     #               if w=="waypoint":
+      #                  wp_db.append(c)                
 
-
+wp_pull = result_json[0]["regions"]
+for region_id,region in wp_pull.items():
+    for a,b in region.items():
+        if a =="maps":
+            for c,v in b.items():
+                for f,g in v.items():
+                    if f=="points_of_interest":
+                        for u,i in g.items():
+                            for q1,q2 in i.items():
+                                if q2=="waypoint":
+                                    print(i)
 #print(len(wp_db))
 
 
-with open('output.json','w') as fs:
-    json.dump(wp_db,fs,indent=4)
+#with open('output.json','w') as fs:
+#    json.dump(wp_db,fs,indent=4)
