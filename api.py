@@ -39,9 +39,12 @@ for region_id,region in wp_pull.items():
                         for u,i in g.items():
                             for q1,q2 in i.items():
                                 if q2=="waypoint":
-                                    print(i)
+                                    wp_db.append(i)
+
+
+#search = input("enter waypoint here")
+for each in wp_db:
+    print(each.get("name"),each.get("chat_link"))
 #print(len(wp_db))
-
-
 #with open('output.json','w') as fs:
 #    json.dump(wp_db,fs,indent=4)
