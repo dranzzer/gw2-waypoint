@@ -26,12 +26,12 @@ for map_number,map_data in wp_pull.items():
         if name =="points_of_interest":
             for x,c in min_level.items():
                 for q,w in c.items():
-                    print(q,w)
-                
+                    if w=="waypoint":
+                        wp_db.append(c)                
 
 
 #print(len(wp_db))
 
 
-#with open('output.json','w') as fs:
-#    json.dump(wp_db,fs,indent=4)
+with open('output.json','w') as fs:
+    json.dump(wp_db,fs,indent=4)
