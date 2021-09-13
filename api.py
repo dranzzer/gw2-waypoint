@@ -21,8 +21,8 @@ for k, v in waypoint_pull.items():
             wp_db.append(v)
 
 
+print(len(wp_db))
 
 
-
-with open('output.json','w') as fs:
-    json.dump(wp_db,fs,indent=4)
+#with open('output.json','w') as fs:
+#    json.dump(wp_db,fs,indent=4)
