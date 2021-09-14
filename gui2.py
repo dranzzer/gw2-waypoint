@@ -1,6 +1,7 @@
 from tkinter import *
 import requests
 import json
+import pyperclip as pc
 result = requests.get("https://api.guildwars2.com/v2/continents/1/floors?ids=1")
 result.status_code
 result_json = result.json()
@@ -49,7 +50,7 @@ def fillout(e):
 
 	for each in wp_db:
 		if each.get("name") == listbox.get(ANCHOR):
-			print(each.get("chat_link"))
+			pc.copy(each.get("chat_link"))
 #check entry vs listbox
 def check(e):
 	typed = entry.get()
