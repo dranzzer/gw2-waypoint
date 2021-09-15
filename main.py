@@ -1,6 +1,7 @@
 from tkinter import *
 import requests
 import json
+import pyperclip as pc
 result = requests.get("https://api.guildwars2.com/v2/continents/1/floors?ids=1")
 result.status_code
 result_json = result.json()
@@ -32,12 +33,15 @@ win.title("test")
 def update(data):
 	#clear listbox
 	listbox.delete(0,END)
+	listbox.pack_forget()
 	#add toppings to list box
-
-
-	for item in data:
-		
-		listbox.insert(END,item.get("name"))
+	if entry.get() == "":
+		data=[]
+	
+	else:
+		for item in data:
+			listbox.pack(fill=BOTH)		
+			listbox.insert(END,item.get("name"))
 
 #change entry to listbox that was clicked
 def fillout(e):
@@ -49,14 +53,17 @@ def fillout(e):
 
 	for each in wp_db:
 		if each.get("name") == listbox.get(ANCHOR):
-			print(each.get("chat_link"))
+			pc.copy(each.get("chat_link"))
 #check entry vs listbox
 def check(e):
 	typed = entry.get()
 	if typed =='':
-		data=wp_db
+		data=[]
+		listbox.pack_forget()
+
 	else:
 		data=[]
+		listbox.pack(fill=BOTH)
 		for item in wp_db:
 			if typed.lower() in item.get("name").lower():
 				data.append(item)
@@ -64,11 +71,11 @@ def check(e):
 
 
 
-entry = Entry(win)
+entry = Entry(win,width=30)
 entry.pack(fill=X)
 
-listbox = Listbox(win,width=50)
-listbox.pack()
+listbox = Listbox(win)
+listbox.pack(fill=BOTH)
 
 
 
