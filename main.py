@@ -33,14 +33,14 @@ win.title("test")
 def update(data):
 	#clear listbox
 	listbox.delete(0,END)
-	listbox.pack_forget()
+	listbox.grid_forget()
 	#add toppings to list box
 	if entry.get() == "":
 		data=[]
 	
 	else:
 		for item in data:
-			listbox.pack(fill=BOTH)		
+			listbox.grid(row=1,column=0,columnspan=2,sticky=EW)
 			listbox.insert(END,item.get("name"))
 
 #change entry to listbox that was clicked
@@ -59,11 +59,11 @@ def check(e):
 	typed = entry.get()
 	if typed =='':
 		data=[]
-		listbox.pack_forget()
+		listbox.grid_forget()
 
 	else:
 		data=[]
-		listbox.pack(fill=BOTH)
+		listbox.grid(row=1,column=0,columnspan=2,sticky=EW)
 		for item in wp_db:
 			if typed.lower() in item.get("name").lower():
 				data.append(item)
@@ -71,11 +71,16 @@ def check(e):
 
 
 
-entry = Entry(win,width=30)
-entry.pack(fill=X)
+entry = Entry(win,width=30,bd=0,bg="black",fg="white",relief=RIDGE)
+entry.grid(row=0,column=0,sticky=NSEW)
 
-listbox = Listbox(win)
-listbox.pack(fill=BOTH)
+
+
+kill_button =Button(win,text=" X ",bd=1,bg="black",fg="white",relief=RIDGE,command=win.destroy)
+kill_button.grid(row=0,column=1,sticky=EW)
+
+listbox = Listbox(win,bd=1,bg="black",fg="white",relief=RIDGE)
+listbox.grid(row=1,column=0,columnspan=2,sticky=EW)
 
 
 
@@ -88,4 +93,6 @@ listbox.bind("<<ListboxSelect>>",fillout)
 entry.bind("<KeyRelease>",check)
 
 
+win.overrideredirect(True)
+win.attributes('-topmost',True)
 win.mainloop()
