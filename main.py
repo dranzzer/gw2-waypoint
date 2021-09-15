@@ -29,6 +29,12 @@ for region_id,region in wp_pull.items():
 win=Tk()
 
 win.title("test")
+screen_height = win.winfo_screenheight()
+print(type(screen_height))
+x=0
+y=screen_height * 0.0240740740740741
+
+win.geometry('+%d+%d'%(x,y)) 
 
 def update(data):
 	#clear listbox

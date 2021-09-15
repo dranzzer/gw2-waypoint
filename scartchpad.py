@@ -1,9 +1,7 @@
-from tkinter import *
+from win32gui import GetWindowText, GetForegroundWindow
 
-from tkinter import ttk
+#i=1
+#while i==1:
+#    print(GetWindowText(GetForegroundWindow()))
 
-root = Tk()
-
-root.attributes('-toolwindow', True)
-
-root.mainloop()
+print(type(GetWindowText(GetForegroundWindow())))
