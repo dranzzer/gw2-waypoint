@@ -2,6 +2,7 @@ from tkinter import *
 import requests
 import json
 import pyperclip as pc
+from win32gui import GetWindowText, GetForegroundWindow
 result = requests.get("https://api.guildwars2.com/v2/continents/1/floors?ids=1")
 result.status_code
 result_json = result.json()
@@ -30,7 +31,6 @@ win=Tk()
 
 win.title("test")
 screen_height = win.winfo_screenheight()
-print(type(screen_height))
 x=0
 y=screen_height * 0.0240740740740741
 
@@ -99,6 +99,9 @@ listbox.bind("<<ListboxSelect>>",fillout)
 entry.bind("<KeyRelease>",check)
 
 
+active_window = (GetWindowText(GetForegroundWindow()))
+#while "main" in active_window:
+	#print("hi")
 win.overrideredirect(True)
 win.attributes('-topmost',True)
 win.mainloop()
