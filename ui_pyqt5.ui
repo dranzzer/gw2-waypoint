@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>227</width>
-    <height>208</height>
+    <width>225</width>
+    <height>239</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,22 +33,27 @@
       <x>140</x>
       <y>0</y>
       <width>81</width>
-      <height>23</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QListView" name="result">
+   <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>20</y>
       <width>221</width>
-      <height>161</height>
+      <height>192</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>asdasd</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

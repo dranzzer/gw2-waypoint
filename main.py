@@ -2,7 +2,6 @@ from tkinter import *
 import requests
 import json
 import pyperclip as pc
-from win32gui import GetWindowText, GetForegroundWindow
 result = requests.get("https://api.guildwars2.com/v2/continents/1/floors?ids=1")
 result.status_code
 result_json = result.json()
@@ -29,9 +28,9 @@ for region_id,region in wp_pull.items():
 
 win=Tk()
 
-win.title("test")
+win.title("gw2-waypoint")
 screen_height = win.winfo_screenheight()
-x=0
+x=5
 y=screen_height * 0.0240740740740741
 
 win.geometry('+%d+%d'%(x,y)) 
@@ -43,10 +42,11 @@ def update(data):
 	#add toppings to list box
 	if entry.get() == "":
 		data=[]
+		#listbox.grid_forget()
 	
 	else:
 		for item in data:
-			listbox.grid(row=1,column=0,columnspan=2,sticky=EW)
+			listbox.grid(row=1,column=0,columnspan=3,sticky=EW)
 			listbox.insert(END,item.get("name"))
 
 #change entry to listbox that was clicked
@@ -55,38 +55,58 @@ def fillout(e):
 
 	entry.delete(0,END)
 	#add clicked item to entry box
-	entry.insert(0,listbox.get(ANCHOR))
+	#entry.insert(0,listbox.get(ANCHOR))
 
 	for each in wp_db:
 		if each.get("name") == listbox.get(ANCHOR):
 			pc.copy(each.get("chat_link"))
+
+	#entry.delete(0,END)
+	listbox.grid_forget()
+
 #check entry vs listbox
 def check(e):
 	typed = entry.get()
+	entry.focus_set()
 	if typed =='':
 		data=[]
-		listbox.grid_forget()
+		#listbox.grid_forget()
 
 	else:
 		data=[]
-		listbox.grid(row=1,column=0,columnspan=2,sticky=EW)
+		listbox.grid(row=1,column=0,columnspan=3,sticky=EW)
 		for item in wp_db:
 			if typed.lower() in item.get("name").lower():
 				data.append(item)
 	update(data)
 
 
+#minimise window 
+def minimise_button():
+	win.overrideredirect(0)
+	win.iconify()
 
-entry = Entry(win,width=30,bd=0,bg="black",fg="white",relief=RIDGE)
+
+
+#maximise window
+
+def max_window(event):
+	win.overrideredirect(1)
+	win.attributes('-topmost',True)
+
+
+	
+entry = Entry(win,width=30,bd=0,bg="black",fg="white",relief=RIDGE,insertbackground="white")
 entry.grid(row=0,column=0,sticky=NSEW)
 
-
-
+minimise_button = Button(win,text=" - ",bd=1,bg="black",fg="white",relief=RIDGE,command=minimise_button)
+minimise_button.grid(row=0,column=1,sticky=EW)
+minimise_button.bind("<Map>",max_window)
 kill_button =Button(win,text=" X ",bd=1,bg="black",fg="white",relief=RIDGE,command=win.destroy)
-kill_button.grid(row=0,column=1,sticky=EW)
+kill_button.grid(row=0,column=2,sticky=EW)
 
 listbox = Listbox(win,bd=1,bg="black",fg="white",relief=RIDGE)
-listbox.grid(row=1,column=0,columnspan=2,sticky=EW)
+listbox.grid(row=1,column=0,columnspan=3,sticky=EW)
 
 
 
@@ -95,13 +115,24 @@ update(wp_db)
 #update entry box
 
 listbox.bind("<<ListboxSelect>>",fillout)
-
 entry.bind("<KeyRelease>",check)
 
 
-active_window = (GetWindowText(GetForegroundWindow()))
-#while "main" in active_window:
-	#print("hi")
+
+
+
+
+
+
+
 win.overrideredirect(True)
 win.attributes('-topmost',True)
+
+
+win.wm_attributes('-alpha', 0.7)
+
+
+
+
+
 win.mainloop()

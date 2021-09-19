@@ -1,7 +1,8 @@
-from win32gui import GetWindowText, GetForegroundWindow
+wp_db = []
 
-#i=1
-#while i==1:
-#    print(GetWindowText(GetForegroundWindow()))
 
-print(type(GetWindowText(GetForegroundWindow())))
+wp_db.append({'chat_link': '[&BGwIAAA=]','name': 'ab - east','type': 'waypoint'})
+wp_db.extend(["hows","life"])
+
+
+print(wp_db)
