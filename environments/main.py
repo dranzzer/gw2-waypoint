@@ -23,9 +23,8 @@ for region_id,region in wp_pull.items():
 
 
 
-pp.pprint(wp_db)
 
-#custom DB handle
+#custom DB handle where future user configs will be appended to 
 
 
 
@@ -34,6 +33,9 @@ wp_db.extend([{'chat_link': '[&BGwIAAA=]','name': 'Auric Basin - East /AB/octovi
 	,{'chat_link': '[&BN0HAAA=]','name': 'Auric Basin - North /AB/octovine','type': 'waypoint'}
 	,{'chat_link': '[&BAIIAAA=]','name': 'Auric Basin - South /AB/octovine','type': 'waypoint'}
 	,{'chat_link': '[&BPUHAAA=]','name': 'Tangled Depths Chak Gerent /TD','type': 'waypoint'}
+	,{'chat_link': '[&BNABAAA=]','name': 'Tequatl - Splintered Coast - Sparkfly Fen','type': 'waypoint'}
+	,{'chat_link': '[&BKoBAAA=]','name': 'Triple Trouble (TT) Bloodtide Coast','type': 'waypoint'}
+	,{'chat_link': '[&BAkMAAA=]','name': 'Dragonstorm - Twisted Marionette - EOTN - DS','type': 'waypoint'}
 	,
 	])
 
@@ -86,9 +88,10 @@ def fillout(e):
 #check entry vs listbox
 def check(e):
 	typed = entry.get()
-	entry.focus_set()
+	
 	if typed =='':
 		data=[]
+
 		#listbox.grid_forget()
 
 	else:
@@ -102,6 +105,7 @@ def check(e):
 				if i==8:
 					break
 	update(data)
+	entry.focus_set()
 
 
 #minimise window 
@@ -155,6 +159,7 @@ win.attributes('-topmost',True)
 win.wm_attributes('-alpha', 0.7)
 
 
+pp.pprint(listbox.get(ANCHOR))
 
 
 
