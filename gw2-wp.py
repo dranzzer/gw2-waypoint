@@ -123,7 +123,7 @@ win=Tk()
 
 win.title("gw2-waypoint")
 screen_height = win.winfo_screenheight()
-win.iconbitmap("D:/Documents/GitHub/gw2-waypoint/icon.ico")
+#win.iconbitmap("D:/Documents/GitHub/gw2-waypoint/icon.ico")
 x=5
 y=screen_height * 0.0240740740740741
 
