@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['D:\\Documents\\GitHub\\gw2-waypoint\\gw2-waypoints'],
+             pathex=['D:\\Documents\\GitHub\\gw2-waypoint'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -37,4 +37,4 @@ exe = EXE(pyz,
           disable_windowed_traceback=False,
           target_arch=None,
           codesign_identity=None,
-          entitlements_file=None )
+          entitlements_file=None , icon='icon.ico')

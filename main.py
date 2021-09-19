@@ -70,6 +70,7 @@ win=Tk()
 
 win.title("gw2-waypoint")
 screen_height = win.winfo_screenheight()
+win.iconbitmap("icon.ico")
 x=5
 y=screen_height * 0.0240740740740741
 
@@ -181,5 +182,7 @@ win.wm_attributes('-alpha', 0.7)
 pp.pprint(listbox.get(ANCHOR))
 
 
-win.iconbitmap("icon.ico")
+
+
+
 win.mainloop()
