@@ -2,6 +2,7 @@ from tkinter import *
 import requests
 import json
 import pyperclip as pc
+import pprint as pp
 result = requests.get("https://api.guildwars2.com/v2/continents/1/floors?ids=1")
 result.status_code
 result_json = result.json()
@@ -19,6 +20,45 @@ for region_id,region in wp_pull.items():
                             for q1,q2 in i.items():
                                 if q2=="waypoint":
                                     wp_db.append(i)
+
+
+#POF WP Database Pull
+pof_result = requests.get("https://api.guildwars2.com/v2/continents/1/floors?ids=49")
+pof_result.status_code
+pof_result_json = pof_result.json()
+
+
+pof_wp_pull = pof_result_json[0]["regions"]
+for region_id,region in pof_wp_pull.items():
+    for a,b in region.items():
+        if a =="maps":
+            for c,v in b.items():
+                for f,g in v.items():
+                    if f=="points_of_interest":
+                        for u,i in g.items():
+                            for q1,q2 in i.items():
+                                if q2=="waypoint":
+                                    wp_db.append(i)
+
+
+
+
+#custom DB handle where future user configs will be appended to 
+
+
+
+wp_db.extend([{'chat_link': '[&BGwIAAA=]','name': 'Auric Basin - East /AB/octovine','type': 'waypoint'}
+	,{'chat_link': '[&BAYIAAA=]','name': 'Auric Basin - West /AB/octovine','type': 'waypoint'}
+	,{'chat_link': '[&BN0HAAA=]','name': 'Auric Basin - North /AB/octovine','type': 'waypoint'}
+	,{'chat_link': '[&BAIIAAA=]','name': 'Auric Basin - South /AB/octovine','type': 'waypoint'}
+	,{'chat_link': '[&BPUHAAA=]','name': 'Tangled Depths Chak Gerent /TD','type': 'waypoint'}
+	,{'chat_link': '[&BNABAAA=]','name': 'Tequatl - Splintered Coast - Sparkfly Fen','type': 'waypoint'}
+	,{'chat_link': '[&BKoBAAA=]','name': 'Triple Trouble (TT) Bloodtide Coast','type': 'waypoint'}
+	,{'chat_link': '[&BAkMAAA=]','name': 'Dragonstorm - Twisted Marionette - EOTN - DS','type': 'waypoint'}
+	,
+	])
+
+
 
 
 
@@ -61,24 +101,30 @@ def fillout(e):
 		if each.get("name") == listbox.get(ANCHOR):
 			pc.copy(each.get("chat_link"))
 
-	#entry.delete(0,END)
+	listbox.delete(0,END)
 	listbox.grid_forget()
 
 #check entry vs listbox
 def check(e):
 	typed = entry.get()
-	entry.focus_set()
+	
 	if typed =='':
 		data=[]
+
 		#listbox.grid_forget()
 
 	else:
 		data=[]
 		listbox.grid(row=1,column=0,columnspan=3,sticky=EW)
+		i=1	
 		for item in wp_db:
 			if typed.lower() in item.get("name").lower():
 				data.append(item)
+				i+=1
+				if i==8:
+					break
 	update(data)
+	entry.focus_set()
 
 
 #minimise window 
@@ -132,7 +178,8 @@ win.attributes('-topmost',True)
 win.wm_attributes('-alpha', 0.7)
 
 
+pp.pprint(listbox.get(ANCHOR))
 
 
-
+win.iconbitmap("icon.ico")
 win.mainloop()
